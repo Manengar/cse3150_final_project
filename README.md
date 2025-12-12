@@ -68,8 +68,11 @@ bgp_simulator
 
 Cycle Check:
 When loading the CAIDA file:
+
     1. It builds a directed graph where edges represent customer → provider
+    
     2. Performs a DFS with recursion-stack tracking
+    
     3. If a cycle is detected:
         a. Prints an error message
         b. Exits immediately
