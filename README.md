@@ -2,48 +2,50 @@
 ## BGP Simulator – CSE 3150 Course Project
 
 This program simulates BGP (Border Gateway Protocol) route propagation over a CAIDA AS-relationship graph, using customer–provider–peer policies and (optional) Route Origin Validation (ROV).
-This simulator models realistic BGP behavior using standard customer–provider–peer policies.
+This simulator models realistic BGP behavior using standard customer–provider–peer policies: 
+    
+    1. Topology Loading & Validation
+        Parses CAIDA AS relationship data
+        Builds a directed AS graph
+        Detects invalid customer–provider cycles using DFS
+        Exits immediately with a non-zero status if a cycle is found
+        
+    2. Graph Flattening
+        Assigns each AS a hierarchy rank based on customer relationships
+        Enables ordered propagation that respects BGP economics
 
-1. Topology Loading & Validation
-    Parses CAIDA AS relationship data
-    Builds a directed AS graph
-    Detects invalid customer–provider cycles using DFS
-    Exits immediately with a non-zero status if a cycle is found
+    3. Three-Phase BGP Propagation
+        UP: customers announce routes to providers
+        ACROSS: peers exchange routes
+        DOWN: providers announce routes to customers
 
-2. Graph Flattening
-    Assigns each AS a hierarchy rank based on customer relationships
-    Enables ordered propagation that respects BGP economics
+    4. Route Selection
+        Routes are selected according to standard BGP rules:
+        Customer > Peer > Provider preference
+        Shorter AS path preferred
+        Deterministic tie-breaking by ASN
 
-3. Three-Phase BGP Propagation
-    UP: customers announce routes to providers
-    ACROSS: peers exchange routes
-    DOWN: providers announce routes to customers
+    5. Convergence & Output
+        Propagation repeats until no routing tables change
+        Final results are written to ribs.csv in the current directory
+        The program must be run on Linux and was created/tested on Ubuntu.
 
-4. Route Selection
-    Routes are selected according to standard BGP rules:
-    Customer > Peer > Provider preference
-    Shorter AS path preferred
-    Deterministic tie-breaking by ASN
-
-5. Convergence & Output
-    Propagation repeats until no routing tables change
-    Final results are written to ribs.csv in the current directory
-    The program must be run on Linux and was created/tested on Ubuntu.
-
-1. Building
-
-From the `src` directory:
-    make clean && make
+Building:
+    
+    From the `src` directory:
+        make clean && make
 
 Requirements:
+
     Linux terminal environment
-    g++ with C++17 support
-    No external libraries
-
+        g++ with C++17 support
+        No external libraries
+    
 This produces an executable named:
-bgp_simulator
 
-2. Running the Simulator
+    bgp_simulator
+
+Running the Simulator:
 
     Prefix test:
     ./bgp_simulator --relationships
@@ -81,6 +83,7 @@ When loading the CAIDA file:
         e. Does not write ribs.csv
 
 Time for many test to finish running:
+    
     real    0m31.925s
     user    0m30.576s
     sys     0m1.187s
