@@ -47,11 +47,11 @@ When loading the CAIDA file:
     1. It builds a directed graph where edges represent customer → provider
     2. Performs a DFS with recursion-stack tracking
     3. If a cycle is detected:
-        Prints an error message
-        Exits immediately
-        Returns exit code 1
-        Does not run propagation
-        Does not write ribs.csv
+        a. Prints an error message
+        b. Exits immediately
+        c. Returns exit code 1
+        d. Does not run propagation
+        e. Does not write ribs.csv
 
 Time for many test to finish running:
     real    0m31.925s
