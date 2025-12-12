@@ -1,5 +1,5 @@
 ## Manasvi Iyengar
-## BGP Simulator V2 – CSE 3150 Course Project
+## BGP Simulator – CSE 3150 Course Project
 
 This program simulates BGP (Border Gateway Protocol) route propagation over a CAIDA AS-relationship graph, using customer–provider–peer policies and (optional) Route Origin Validation (ROV).
 It exports a ribs.csv file containing the final routing tables after convergence.
