@@ -49,22 +49,22 @@ Running the Simulator:
 
     Prefix test:
     ./bgp_simulator --relationships
-  ../bench/prefix/CAIDAASGraphCollector_2025.10.16.txt --announcements
-  ../bench/prefix/anns.csv --rov-asns ../bench/prefix/rov_asns.csv
-  ../bench/compare_output.sh ../bench/prefix/ribs.csv ribs.csv
+      ../bench/prefix/CAIDAASGraphCollector_2025.10.16.txt --announcements
+      ../bench/prefix/anns.csv --rov-asns ../bench/prefix/rov_asns.csv
+      ../bench/compare_output.sh ../bench/prefix/ribs.csv ribs.csv
 
     Subprefix test:
      ./bgp_simulator --relationships
-  ../bench/subprefix/CAIDAASGraphCollector_2025.10.16.txt
-  --announcements ../bench/subprefix/anns.csv --rov-asns
-  ../bench/subprefix/rov_asns.csv
-  ../bench/compare_output.sh ../bench/subprefix/ribs.csv ribs.csv
+      ../bench/subprefix/CAIDAASGraphCollector_2025.10.16.txt
+      --announcements ../bench/subprefix/anns.csv --rov-asns
+      ../bench/subprefix/rov_asns.csv
+      ../bench/compare_output.sh ../bench/subprefix/ribs.csv ribs.csv
  
     Many test:
     ./bgp_simulator --relationships
-  ../bench/many/CAIDAASGraphCollector_2025.10.15.txt --announcements
-  ../bench/many/anns.csv --rov-asns ../bench/many/rov_asns.csv
-  ../bench/compare_output.sh ../bench/many/ribs.csv ribs.csv
+      ../bench/many/CAIDAASGraphCollector_2025.10.15.txt --announcements
+      ../bench/many/anns.csv --rov-asns ../bench/many/rov_asns.csv
+      ../bench/compare_output.sh ../bench/many/ribs.csv ribs.csv
 
 ## ALL TESTS PASS and outputs ✓ Files match perfectly!
 
